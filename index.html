@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faster Technology - Nelson Quintana</title>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Manjari&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Manjari', sans-serif; }
+body { color: #333; background: #fff; line-height: 1.6; }
+.hidden { display: none; }
+
+/* Header */
+header { display: flex; align-items: center; justify-content: space-between; padding: 10px 30px; background: #f8f8f8; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+header img { height: 50px; }
+
+/* Nav */
+nav ul { display: flex; list-style: none; }
+nav ul li { margin-left: 20px; }
+nav ul li a { text-decoration: none; color: #333; font-weight: bold; transition: color 0.3s; }
+nav ul li a:hover { color: #0078ff; }
+
+/* Burger menu */
+.menu-toggle { display: none; flex-direction: column; cursor: pointer; }
+.menu-toggle div { width: 25px; height: 3px; background: #333; margin: 4px 0; transition: 0.4s; }
+@media (max-width: 768px) {
+    nav ul { flex-direction: column; position: absolute; top: 70px; right: 0; background: #f8f8f8; width: 200px; display: none; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+    nav ul.active { display: flex; }
+    nav ul li { margin: 15px 0; text-align: center; }
+    .menu-toggle { display: flex; }
+}
+
+/* Secciones */
+section { padding: 50px 20px; max-width: 1100px; margin: auto; }
+h1, h2 { text-align: center; margin-bottom: 20px; }
+.services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; text-align: center; }
+.service { background: #f9f9f9; padding: 20px; border-radius: 8px; transition: transform 0.3s; }
+.service:hover { transform: translateY(-5px); }
+.service img { width: 60px; margin-bottom: 10px; }
+
+/* Formulario */
+form { display: flex; flex-direction: column; gap: 10px; max-width: 500px; margin: auto; }
+form input, form textarea { padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+form button { background: #0078ff; color: white; border: none; padding: 10px; cursor: pointer; border-radius: 5px; }
+
+/* Botón WhatsApp */
+.whatsapp-btn { position: fixed; bottom: 20px; right: 20px; border: 0; padding: 1rem 1.4rem; background: steelblue; border-radius: 4px; color: #fff; cursor: pointer; text-decoration: none; font-weight: bold; z-index: 1001; }
+.whatsapp-btn.loading { position: relative; }
+.whatsapp-btn.loading::before { content: ''; position: absolute; background: inherit; width: 100%; height: 100%; top: 0; left: 0; border-radius: inherit; opacity: .9; }
+.whatsapp-btn.loading::after { content: ''; position: absolute; top: 50%; left: 50%; margin-top: -6px; margin-left: -6px; width: 12px; height: 12px; border: 2px solid transparent; border-top-color: #fff; border-radius: 50%; animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Login */
+.login-box { max-width: 400px; margin: auto; padding: 20px; background: #f9f9f9; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.login-box input { width: 100%; margin-bottom: 10px; padding: 10px; }
+.admin-section { max-width: 800px; margin: auto; }
+.message-item { border-bottom: 1px solid #ccc; padding: 10px 0; }
+
+/* Footer */
+footer { text-align: center; padding: 20px; background: #f8f8f8; font-size: 14px; margin-top: 40px; }
+</style>
+</head>
+<body>
+
+<header>
+    <img src="fasterrr.jpeg" alt="Faster Technology Logo">
+    <div class="menu-toggle" id="menu-toggle">
+        <div></div><div></div><div></div>
+    </div>
+    <nav>
+        <ul id="menu">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#acerca">Acerca de</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="#login">Iniciar Sesión</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="inicio">
+    <h1>Faster Technology</h1>
+    <p style="text-align:center; max-width:800px; margin:auto;">
+        Nelson Quintana - Técnico electrónico e informático.  
+        Servicio profesional de reparación y mantenimiento de equipos electrónicos, aparatos médicos, computadoras e impresoras.
+    </p>
+</section>
+
+<section id="acerca">
+    <h2>Acerca de</h2>
+    <p style="text-align:center; max-width:800px; margin:auto;">
+        Con más de 20 años de experiencia, Faster Technology ofrece soluciones rápidas y eficaces en electrónica e informática.
+    </p>
+</section>
+
+<section id="servicios">
+    <h2>Servicios</h2>
+    <div class="services">
+        <div class="service">
+            <img src="https://cdn-icons-png.flaticon.com/512/2920/2920244.png" alt="PC">
+            <h3>Reparación de Computadoras</h3>
+            <p>Diagnóstico, reparación y optimización de PC y notebooks.</p>
+        </div>
+        <div class="service">
+            <img src="https://cdn-icons-png.flaticon.com/512/1048/1048953.png" alt="Impresoras">
+            <h3>Servicio Técnico de Impresoras</h3>
+            <p>Solución de problemas mecánicos y de software en impresoras.</p>
+        </div>
+        <div class="service">
+            <img src="https://cdn-icons-png.flaticon.com/512/3063/3063788.png" alt="Medicina">
+            <h3>Aparatos Médicos</h3>
+            <p>Revisión y mantenimiento de equipos médicos electrónicos.</p>
+        </div>
+    </div>
+</section>
+
+<section id="contacto">
+    <h2>Contacto</h2>
+    <form id="contact-form">
+        <input type="text" id="nombre" placeholder="Tu nombre" required>
+        <input type="email" id="correo" placeholder="Tu correo" required>
+        <textarea id="mensaje" rows="5" placeholder="Tu mensaje"></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+</section>
+
+<section id="login">
+    <h2>Iniciar Sesión</h2>
+    <div class="login-box">
+        <input type="text" id="user" placeholder="Usuario">
+        <input type="password" id="pass" placeholder="Contraseña">
+        <button onclick="login()">Entrar</button>
+    </div>
+</section>
+
+<section id="admin" class="hidden">
+    <h2>Nos contactaron</h2>
+    <div class="admin-section" id="messages-list">
+        <p>No hay mensajes aún.</p>
+    </div>
+</section>
+
+<!-- Botón WhatsApp -->
+<a href="https://wa.link/4c8gec" target="_blank" class="whatsapp-btn loading">WhatsApp</a>
+
+<footer>
+    &copy; 2025 Faster Technology - Nelson Quintana. Todos los derechos reservados.
+</footer>
+
+<script>
+const toggle = document.getElementById('menu-toggle');
+const menu = document.getElementById('menu');
+toggle.addEventListener('click', () => { menu.classList.toggle('active'); });
+
+// Guardar mensajes temporalmente
+let mensajes = [];
+
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    let nombre = document.getElementById('nombre').value;
+    let correo = document.getElementById('correo').value;
+    let mensaje = document.getElementById('mensaje').value;
+    mensajes.push({nombre, correo, mensaje});
+    alert("Mensaje enviado correctamente");
+    this.reset();
+});
+
+// Login simulado
+function login() {
+    let usuario = document.getElementById('user').value;
+    let clave = document.getElementById('pass').value;
+    if (usuario === "Nelson Guido" && clave === "1969") {
+        document.getElementById('admin').classList.remove('hidden');
+        mostrarMensajes();
+        window.location.hash = "admin";
+    } else {
+        alert("Usuario o contraseña incorrectos");
+    }
+}
+
+// Mostrar mensajes
+function mostrarMensajes() {
+    let contenedor = document.getElementById('messages-list');
+    contenedor.innerHTML = "";
+    if (mensajes.length === 0) {
+        contenedor.innerHTML = "<p>No hay mensajes aún.</p>";
+    } else {
+        mensajes.forEach(msg => {
+            let div = document.createElement('div');
+            div.classList.add('message-item');
+            div.innerHTML = `<strong>${msg.nombre}</strong> (${msg.correo})<br>${msg.mensaje}`;
+            contenedor.appendChild(div);
+        });
+    }
+}
+</script>
+</body>
+</html>
